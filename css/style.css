@@ -95,9 +95,7 @@ img, svg{ max-width:100%; }
 }
 .brand-mark{
   width:38px; height:38px; border-radius:10px;
-  background: linear-gradient(135deg, var(--teal), var(--violet));
-  display:flex; align-items:center; justify-content:center;
-  font-family:'JetBrains Mono', monospace; font-weight:700; font-size:.78rem; color:#ffffff;
+  object-fit:cover;
   flex-shrink:0;
 }
 .brand-name{ display:flex; flex-direction:column; min-width:0; }
