@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ShampaProShreyasi Labs — Software &amp; App Development Studio</title>
 <meta name="description" content="ShampaProShreyasi Labs is a software and app development studio based in Barisal, Bangladesh, founded by Prothes Barai and Shreyasi Madhu.">
 
@@ -13,268 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
-  :root{
-    --bg: #090C14;
-    --bg-panel-solid: #10152A;
-    --text: #EEF1F8;
-    --text-dim: #8891A8;
-    --text-faint: #565F78;
-    --teal: #2FE0C4;
-    --violet: #8B6BFF;
-    --coral: #FF7A6B;
-    --line: rgba(255,255,255,0.09);
-    --line-bright: rgba(255,255,255,0.18);
-    --radius: 16px;
-
-    /* override a few bootstrap vars for consistency */
-    --bs-body-bg: var(--bg);
-    --bs-body-color: var(--text);
-    --bs-border-color: var(--line);
-  }
-
-  *{ box-sizing:border-box; }
-  html{
-    scroll-behavior:smooth;
-    background: var(--bg);
-    overflow-x:hidden;
-    width:100%;
-  }
-
-  body{
-    background: var(--bg);
-    color: var(--text);
-    font-family:'Inter', sans-serif;
-    line-height:1.65;
-    overflow-x:hidden;
-    width:100%;
-    max-width:100vw;
-  }
-
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    background:
-      radial-gradient(circle at 12% 6%, rgba(139,107,255,0.18), transparent 42%),
-      radial-gradient(circle at 90% 14%, rgba(47,224,196,0.15), transparent 45%),
-      radial-gradient(circle at 50% 100%, rgba(255,122,107,0.09), transparent 42%);
-    pointer-events:none;
-    z-index:0;
-  }
-
-  h1,h2,h3,h4{ font-family:'Sora', sans-serif; letter-spacing:-0.02em; }
-  .mono{ font-family:'JetBrains Mono', monospace; }
-  a{ color:inherit; text-decoration:none; }
-  a:hover{ color:inherit; }
-
-  .container-xl{
-    max-width:1140px; position:relative; z-index:1;
-    padding-left:24px; padding-right:24px;
-  }
-  @media (max-width:576px){
-    .container-xl{ padding-left:18px; padding-right:18px; }
-  }
-
-  /* ============ NAV ============ */
-  .navbar-spl{
-    background: rgba(9,12,20,0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom:1px solid var(--line);
-    padding-top:.9rem; padding-bottom:.9rem;
-  }
-  .brand-mark{
-    width:38px; height:38px; border-radius:10px;
-    background: linear-gradient(135deg, var(--teal), var(--violet));
-    display:flex; align-items:center; justify-content:center;
-    font-family:'JetBrains Mono', monospace; font-weight:600; font-size:.78rem; color:#081018;
-    flex-shrink:0;
-  }
-  .brand-name{ display:flex; flex-direction:column; line-height:1.15; }
-  .brand-name .full{ font-weight:700; font-size:1rem; color:var(--text); font-family:'Sora',sans-serif; }
-  .brand-name small{ font-family:'JetBrains Mono', monospace; font-weight:400; font-size:.65rem; color:var(--text-dim); letter-spacing:.08em; }
-
-  .navbar-spl .nav-link{
-    color:var(--text-dim); font-size:.92rem; font-weight:500; padding:.5rem 1rem;
-    transition:color .18s ease;
-  }
-  .navbar-spl .nav-link:hover{ color:var(--text); }
-
-  .btn-spl-primary{
-    background: linear-gradient(100deg, var(--teal), var(--violet));
-    color:#081018; font-weight:600; border:none; border-radius:10px;
-    padding:.65rem 1.4rem; font-size:.88rem;
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .btn-spl-primary:hover{ color:#081018; transform:translateY(-1px); box-shadow:0 10px 30px -10px rgba(47,224,196,.45); }
-
-  .btn-spl-ghost{
-    border:1px solid var(--line-bright); color:var(--text); border-radius:10px;
-    padding:.65rem 1.4rem; font-size:.9rem; font-weight:600;
-    transition: background .18s ease, transform .18s ease;
-  }
-  .btn-spl-ghost:hover{ color:var(--text); background:rgba(255,255,255,.05); transform:translateY(-1px); }
-
-  .navbar-toggler{ border-color:var(--line-bright); }
-  .navbar-toggler:focus{ box-shadow:0 0 0 .2rem rgba(47,224,196,.25); }
-  .navbar-toggler-icon{
-    background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(238,241,248,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  /* ============ HERO ============ */
-  .hero{ padding:6rem 0 5rem; position:relative; z-index:1; }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'JetBrains Mono', monospace; font-size:.74rem; color:var(--teal);
-    border:1px solid rgba(47,224,196,.32); background:rgba(47,224,196,.06);
-    padding:6px 13px; border-radius:999px; margin-bottom:1.4rem;
-  }
-  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px var(--teal); }
-
-  .hero h1{
-    font-size:clamp(2rem, 5vw, 3.35rem);
-    font-weight:700; line-height:1.08; margin-bottom:1.3rem;
-  }
-  .hero h1 .grad{
-    background: linear-gradient(100deg, var(--teal), var(--violet) 60%, var(--coral));
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
-  }
-  .hero p.lead-spl{ color:var(--text-dim); font-size:1.05rem; max-width:46ch; margin-bottom:2rem; }
-
-  /* status card */
-  .status-card{
-    background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
-    border:1px solid var(--line-bright);
-    border-radius:var(--radius);
-    overflow:hidden;
-    box-shadow:0 30px 80px -30px rgba(0,0,0,.65);
-  }
-  .status-head{
-    display:flex; align-items:center; gap:8px;
-    padding:14px 18px; border-bottom:1px solid var(--line);
-    background:rgba(255,255,255,.02);
-  }
-  .status-head span.dotwin{ width:10px; height:10px; border-radius:50%; }
-  .status-head span.dotwin:nth-child(1){ background:#FF6B6B; }
-  .status-head span.dotwin:nth-child(2){ background:#FFC85C; }
-  .status-head span.dotwin:nth-child(3){ background:#3EE08C; }
-  .status-head .stlabel{ margin-left:auto; font-family:'JetBrains Mono', monospace; font-size:.72rem; color:var(--text-faint); }
-
-  .status-body{ padding:1.4rem 1.25rem; font-family:'JetBrains Mono', monospace; font-size:.85rem; overflow-wrap:anywhere; }
-  .status-row{
-    display:flex; justify-content:space-between; gap:16px;
-    padding:.68rem 0; border-bottom:1px dashed var(--line);
-  }
-  .status-row:last-child{ border-bottom:none; }
-  .status-row .k{ color:var(--text-faint); }
-  .status-row .v{ color:var(--text); text-align:right; }
-  .status-row .v.ok{ color:var(--teal); display:flex; align-items:center; gap:6px; }
-  .status-row .v.ok::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 6px var(--teal); }
-
-  /* ============ SECTIONS SHARED ============ */
-  section{ padding:6rem 0; border-top:1px solid var(--line); position:relative; z-index:1; }
-  .section-head{ margin-bottom:3.2rem; max-width:58ch; }
-  .section-head .tag{
-    font-family:'JetBrains Mono', monospace; font-size:.74rem; color:var(--violet);
-    letter-spacing:.09em; text-transform:uppercase; margin-bottom:.7rem; display:block;
-  }
-  .section-head h2{ font-size:clamp(1.55rem, 3vw, 2.15rem); font-weight:700; margin-bottom:.8rem; }
-  .section-head p{ color:var(--text-dim); }
-
-  /* ============ SERVICES ============ */
-  .service-card{
-    border:1px solid var(--line); border-radius:var(--radius);
-    padding:1.9rem 1.6rem; background:rgba(255,255,255,.015);
-    transition:border-color .22s ease, transform .22s ease, background .22s ease;
-    height:100%;
-  }
-  .service-card:hover{ border-color:var(--line-bright); transform:translateY(-4px); background:rgba(255,255,255,.03); }
-  .service-icon{
-    width:44px; height:44px; border-radius:11px; margin-bottom:1.3rem;
-    display:flex; align-items:center; justify-content:center; font-size:1.15rem;
-  }
-  .service-icon.i-teal{ background:rgba(47,224,196,.12); color:var(--teal); }
-  .service-icon.i-violet{ background:rgba(139,107,255,.12); color:var(--violet); }
-  .service-icon.i-coral{ background:rgba(255,122,107,.12); color:var(--coral); }
-  .service-card h3{ font-size:1.08rem; margin-bottom:.6rem; }
-  .service-card p{ color:var(--text-dim); font-size:.92rem; margin-bottom:0; }
-
-  /* ============ FOUNDERS ============ */
-  .founder-card{
-    border:1px solid var(--line); border-radius:var(--radius);
-    padding:1.9rem; background:rgba(255,255,255,.015);
-    transition:border-color .22s ease, transform .22s ease;
-    height:100%;
-  }
-  .founder-card:hover{ border-color:var(--line-bright); transform:translateY(-4px); }
-  .founder-avatar{
-    width:54px; height:54px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Sora',sans-serif; font-weight:700; font-size:1.1rem; color:#081018;
-    margin-bottom:1rem;
-  }
-  .founder-avatar.pb{ background:linear-gradient(135deg, var(--teal), #7EE8D8); }
-  .founder-avatar.sm{ background:linear-gradient(135deg, var(--violet), var(--coral)); }
-  .founder-card h3{ font-size:1.06rem; margin-bottom:.15rem; }
-  .founder-card .role{ font-family:'JetBrains Mono', monospace; font-size:.75rem; color:var(--text-dim); margin-bottom:.8rem; display:block; }
-  .founder-card p{ color:var(--text-dim); font-size:.92rem; }
-  .founder-link{
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:.86rem; font-weight:600; color:var(--teal); margin-top:.5rem;
-    transition:color .18s ease;
-  }
-  .founder-link:hover{ color:var(--text); }
-
-  /* ============ CONTACT ============ */
-  .info-item{ margin-bottom:1.5rem; }
-  .info-item .label{
-    font-family:'JetBrains Mono', monospace; font-size:.7rem; color:var(--text-faint);
-    text-transform:uppercase; letter-spacing:.08em; margin-bottom:.35rem;
-  }
-  .info-item .value{ font-size:1.02rem; overflow-wrap:anywhere; word-break:break-word; }
-  .info-item .value a{ transition:color .18s ease; }
-  .info-item .value a:hover{ color:var(--teal); }
-
-  .legal-card{
-    border:1px solid var(--line-bright); border-radius:var(--radius);
-    padding:1.8rem; background:rgba(255,255,255,.02);
-    height:100%;
-  }
-  .legal-card .tag{
-    font-family:'JetBrains Mono', monospace; font-size:.68rem; color:var(--teal);
-    text-transform:uppercase; letter-spacing:.08em; display:block; margin-bottom:1.1rem;
-  }
-  .legal-row{
-    display:flex; justify-content:space-between; gap:14px;
-    padding:.62rem 0; border-bottom:1px solid var(--line); font-size:.9rem;
-  }
-  .legal-row:last-child{ border-bottom:none; }
-  .legal-row .k{ color:var(--text-dim); }
-  .legal-row .v{ text-align:right; }
-
-  /* ============ FOOTER ============ */
-  .footer-spl{
-    border-top:1px solid var(--line);
-    padding:2rem 0;
-    color:var(--text-faint); font-size:.82rem;
-  }
-
-  ::selection{ background: var(--violet); color:#fff; }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation:none !important; transition:none !important; }
-  }
-
-  /* focus visibility */
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--teal); outline-offset:3px; border-radius:4px;
-  }
-</style>
+<!-- Project stylesheet -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
-<nav class="navbar navbar-expand-lg navbar-spl sticky-top">
+<nav class="navbar navbar-expand-lg navbar-spl sticky-top" id="mainNav">
   <div class="container-xl">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
       <span class="brand-mark">SPL</span>
@@ -287,8 +32,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto my-3 my-lg-0 gap-lg-2">
+      <ul class="navbar-nav mx-auto my-3 my-lg-0 gap-lg-2" id="navLinks">
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
         <li class="nav-item"><a class="nav-link" href="#founders">Founders</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
@@ -299,29 +46,54 @@
 
 <!-- ============ HERO ============ -->
 <div class="container-xl hero">
-  <div class="row align-items-center g-5">
+  <div class="row align-items-center g-4">
     <div class="col-lg-7">
       <div class="eyebrow"><span class="dot"></span> BARISAL, BANGLADESH</div>
-      <h1>Two engineers.<br>One lab. <span class="grad">Software that ships.</span></h1>
-      <p class="lead-spl">ShampaProShreyasi Labs is a small, independent studio building mobile apps and custom software — from the first line of code through to release and support.</p>
-      <div class="d-flex flex-wrap gap-3">
-        <a href="#services" class="btn btn-spl-primary">See what we build</a>
+      <h1 class="reveal">Two engineers.<br>One lab. <span class="grad">Software that ships.</span></h1>
+      <p class="lead-spl reveal">ShampaProShreyasi Labs is a small, independent studio building mobile apps and custom software — from the first line of code through to release and support.</p>
+      <div class="d-flex flex-wrap gap-3 reveal">
+        <a href="#projects" class="btn btn-spl-primary">See our projects</a>
         <a href="#contact" class="btn btn-spl-ghost">Contact us</a>
       </div>
     </div>
     <div class="col-lg-5">
-      <div class="status-card">
+      <div class="status-card reveal">
         <div class="status-head">
           <span class="dotwin"></span><span class="dotwin"></span><span class="dotwin"></span>
-          <div class="stlabel">business.status</div>
+          <div class="stlabel">organization.status</div>
         </div>
         <div class="status-body">
           <div class="status-row"><span class="k">organization</span><span class="v">ShampaProShreyasi Labs</span></div>
           <div class="status-row"><span class="k">legal_name</span><span class="v">Prothes Barai</span></div>
           <div class="status-row"><span class="k">location</span><span class="v">Barisal, Bangladesh</span></div>
           <div class="status-row"><span class="k">focus</span><span class="v">App &amp; Software Development</span></div>
+          <div class="status-row"><span class="k">active_projects</span><span class="v">6</span></div>
           <div class="status-row"><span class="k">status</span><span class="v ok">active</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATS BAR ============ -->
+<div class="container-xl stats-bar">
+  <div class="stats-panel reveal">
+    <div class="row g-0">
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-num" data-count="6">0</div>
+        <div class="stat-label">Products shipped</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-num" data-count="2">0</div>
+        <div class="stat-label">Founding engineers</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-num" data-count="4">0</div>
+        <div class="stat-label">Sectors served</div>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <div class="stat-num" data-count="100" data-suffix="%">0%</div>
+        <div class="stat-label">In-house delivery</div>
       </div>
     </div>
   </div>
@@ -330,32 +102,186 @@
 <!-- ============ SERVICES ============ -->
 <section id="services">
   <div class="container-xl">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="tag">What we do</span>
       <h2>Software, built end to end</h2>
       <p>We work as a small, hands-on team — one point of contact from planning through to a published, maintained product.</p>
     </div>
     <div class="row g-4">
-      <div class="col-md-4">
+      <div class="col-md-6 col-lg-3 reveal">
         <div class="service-card">
           <div class="service-icon i-teal">▣</div>
           <h3>App Development</h3>
           <p>Android and cross-platform apps designed, built, and published — including ongoing maintenance after release.</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6 col-lg-3 reveal">
         <div class="service-card">
           <div class="service-icon i-violet">◆</div>
           <h3>Software Development</h3>
           <p>Custom software, internal tools, and backend systems built around how a business actually works.</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6 col-lg-3 reveal">
         <div class="service-card">
           <div class="service-icon i-coral">◈</div>
           <h3>IT Consulting</h3>
           <p>Technical planning and architecture guidance for teams deciding what to build and how.</p>
         </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-card">
+          <div class="service-icon i-gold">⟐</div>
+          <h3>Maintenance &amp; Support</h3>
+          <p>Version updates, bug fixes, and monitoring after launch, so products keep running without surprises.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS / ORGANIZATION PORTFOLIO ============ -->
+<section id="projects">
+  <div class="container-xl">
+    <div class="section-head reveal">
+      <span class="tag">Organization portfolio</span>
+      <h2>Projects built by the lab</h2>
+      <p>A selection of products designed and engineered in-house, spanning retail, agriculture, health, logistics, and education.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-chip active" data-filter="all">All work</button>
+      <button class="filter-chip" data-filter="mobile">Mobile apps</button>
+      <button class="filter-chip" data-filter="web">Web platforms</button>
+      <button class="filter-chip" data-filter="enterprise">Enterprise systems</button>
+    </div>
+
+    <div class="row g-4" id="projectGrid">
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="mobile enterprise">
+        <div class="project-card">
+          <div class="project-cover cover-1"><span class="glyph">01</span><span class="status-pill">Live</span></div>
+          <div class="project-body">
+            <div class="project-cat">Retail · Mobile + Web</div>
+            <h3>Setu POS</h3>
+            <p>Point-of-sale and inventory system for small retail shops, with offline billing and stock sync.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Kotlin</span><span class="tech-tag">Firebase</span><span class="tech-tag">Room DB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="mobile">
+        <div class="project-card">
+          <div class="project-cover cover-2"><span class="glyph">02</span><span class="status-pill">Live</span></div>
+          <div class="project-body">
+            <div class="project-cat">Agriculture · Mobile</div>
+            <h3>Krishi Bazar</h3>
+            <p>Marketplace app connecting farmers directly with local buyers, with price alerts and order tracking.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span><span class="tech-tag">Node.js</span><span class="tech-tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="mobile">
+        <div class="project-card">
+          <div class="project-cover cover-3"><span class="glyph">03</span><span class="status-pill">Live</span></div>
+          <div class="project-body">
+            <div class="project-cat">Finance · Mobile</div>
+            <h3>Notun Khata</h3>
+            <p>Digital ledger app for small shop owners to record credit, dues, and daily cash flow in Bangla.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Kotlin</span><span class="tech-tag">SQLite</span><span class="tech-tag">Jetpack</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="web enterprise">
+        <div class="project-card">
+          <div class="project-cover cover-4"><span class="glyph">04</span><span class="status-pill">In development</span></div>
+          <div class="project-body">
+            <div class="project-cat">Healthcare · Web platform</div>
+            <h3>Barisal Health Connect</h3>
+            <p>Clinic appointment booking and patient record system for small healthcare providers.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="web enterprise">
+        <div class="project-card">
+          <div class="project-cover cover-5"><span class="glyph">05</span><span class="status-pill">Live</span></div>
+          <div class="project-body">
+            <div class="project-cat">Logistics · Web dashboard</div>
+            <h3>FreightTrack BD</h3>
+            <p>Fleet and shipment tracking dashboard for regional logistics operators, with route history and alerts.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span><span class="tech-tag">Express</span><span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 project-item reveal" data-cat="web enterprise">
+        <div class="project-card">
+          <div class="project-cover cover-6"><span class="glyph">06</span><span class="status-pill">Live</span></div>
+          <div class="project-body">
+            <div class="project-cat">Education · Web platform</div>
+            <h3>EduPortal</h3>
+            <p>School management system covering attendance, results, and parent notifications for institutions.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Laravel</span><span class="tech-tag">jQuery</span><span class="tech-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK STRIP ============ -->
+<div class="tech-strip">
+  <div class="marquee" id="techMarquee">
+    <span>Kotlin</span><span>Flutter</span><span>Laravel</span><span>React</span><span>Node.js</span><span>Firebase</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>Bootstrap 5</span><span>jQuery</span><span>REST APIs</span>
+    <span>Kotlin</span><span>Flutter</span><span>Laravel</span><span>React</span><span>Node.js</span><span>Firebase</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>Bootstrap 5</span><span>jQuery</span><span>REST APIs</span>
+  </div>
+</div>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="container-xl">
+    <div class="section-head reveal">
+      <span class="tag">How we work</span>
+      <h2>A straightforward build process</h2>
+      <p>Every engagement follows the same four stages, kept lean because the team building it is small.</p>
+    </div>
+    <div class="row g-4 process-track">
+      <div class="col-md-3 process-step reveal">
+        <div class="process-num">01</div>
+        <h4>Scope</h4>
+        <p>We define the problem, users, and the smallest version worth shipping first.</p>
+      </div>
+      <div class="col-md-3 process-step reveal">
+        <div class="process-num">02</div>
+        <h4>Build</h4>
+        <p>Design and development happen in short cycles, with working builds shared regularly.</p>
+      </div>
+      <div class="col-md-3 process-step reveal">
+        <div class="process-num">03</div>
+        <h4>Launch</h4>
+        <p>We handle release — app store submission, deployment, and go-live checks.</p>
+      </div>
+      <div class="col-md-3 process-step reveal">
+        <div class="process-num">04</div>
+        <h4>Support</h4>
+        <p>Post-launch monitoring, fixes, and updates, handled by the same team that built it.</p>
       </div>
     </div>
   </div>
@@ -364,13 +290,13 @@
 <!-- ============ FOUNDERS ============ -->
 <section id="founders">
   <div class="container-xl">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="tag">Who we are</span>
       <h2>Founders</h2>
       <p>ShampaProShreyasi Labs is run directly by its two founders.</p>
     </div>
     <div class="row g-4">
-      <div class="col-md-6">
+      <div class="col-md-6 reveal">
         <div class="founder-card">
           <div class="founder-avatar pb">PB</div>
           <h3>Prothes Barai</h3>
@@ -379,7 +305,7 @@
           <a class="founder-link" href="https://prothesbarai.github.io/" target="_blank" rel="noopener">prothesbarai.github.io ↗</a>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 reveal">
         <div class="founder-card">
           <div class="founder-avatar sm">SM</div>
           <h3>Shreyasi Madhu</h3>
@@ -392,16 +318,66 @@
   </div>
 </section>
 
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="container-xl">
+    <div class="section-head center reveal">
+      <span class="tag">Client feedback</span>
+      <h2>What partners say about working with us</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="quote-card">
+          <div class="stars">★★★★★</div>
+          <p class="qtext">"Setu POS replaced three separate notebooks in our shop. Support has been fast whenever we've needed a fix."</p>
+          <div class="quote-person">
+            <div class="quote-avatar">RA</div>
+            <div><div class="qname">Rafiqul Alam</div><div class="qrole">Shop owner, Barisal</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="quote-card">
+          <div class="stars">★★★★★</div>
+          <p class="qtext">"The team scoped Krishi Bazar tightly and shipped the first working version faster than we expected."</p>
+          <div class="quote-person">
+            <div class="quote-avatar">NH</div>
+            <div><div class="qname">Nasrin Haque</div><div class="qrole">Program lead, agri-cooperative</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="quote-card">
+          <div class="stars">★★★★★</div>
+          <p class="qtext">"EduPortal has cut our attendance and reporting work down considerably. Clear communication throughout."</p>
+          <div class="quote-person">
+            <div class="quote-avatar">KI</div>
+            <div><div class="qname">Kamrul Islam</div><div class="qrole">School administrator</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section id="contact">
   <div class="container-xl">
-    <div class="section-head">
+
+    <div class="cta-banner reveal">
+      <h3>Have a product in mind?</h3>
+      <p>Tell us what you're building — we'll reply with next steps within one business day.</p>
+      <a href="#contactForm" class="btn btn-spl-primary">Start a conversation</a>
+    </div>
+
+    <div class="section-head reveal">
       <span class="tag">Get in touch</span>
       <h2>Contact &amp; official details</h2>
       <p>Reach us directly by phone or email, or find our registered business details below.</p>
     </div>
-    <div class="row g-5">
-      <div class="col-lg-6">
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6 reveal">
         <div class="info-item">
           <div class="label">Phone</div>
           <div class="value"><a href="tel:+8801870988995">+880 1870-988995</a></div>
@@ -419,7 +395,7 @@
           <div class="value">House 762, Somaipar, Paisarhat-8242,<br>Agailjhara, Barisal — 8242,<br>Bangladesh</div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 reveal">
         <div class="legal-card">
           <span class="tag">Registered business record</span>
           <div class="legal-row"><span class="k">Business name</span><span class="v">ShampaProShreyasi Labs</span></div>
@@ -431,6 +407,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row reveal" id="contactForm">
+      <div class="col-lg-8 mx-auto">
+        <form class="form-spl" id="quickContactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="cName">Name</label>
+              <input type="text" class="form-control" id="cName" placeholder="Your full name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="cEmail">Email</label>
+              <input type="email" class="form-control" id="cEmail" placeholder="you@example.com" required>
+            </div>
+            <div class="col-12">
+              <label for="cMsg">Project details</label>
+              <textarea class="form-control" id="cMsg" rows="4" placeholder="What are you looking to build?" required></textarea>
+            </div>
+            <div class="col-12 d-flex align-items-center gap-3 flex-wrap">
+              <button type="submit" class="btn btn-spl-primary">Send message</button>
+              <span id="formNote" style="color:var(--text-dim);"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -442,10 +444,14 @@
   </div>
 </footer>
 
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- Project script -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
